@@ -390,7 +390,7 @@ function any_vote_render_block($key) {
   // Data for Google chart api parameters
   $return_block['yes_count'] = $tokens['yes_count'];
   $return_block['no_count'] = $tokens['no_count'];
-  $return_block['total_count'] = $tokens['total_count'];
+  $return_block['vote_sum'] = $return_block['yes_count'] + $return_block['no_count'];
 
   return $return_block;
 }
