@@ -104,11 +104,11 @@ function any_vote_cast_vote($vote_id, $content_id, $vote_value, $ajax = FALSE) {
 function hook_any_vote() {
   $items['recommendation'] = array(
     'title' => 'Recommendation',
-    'info' => 'Allow users to reccommend something',
+    'info' => 'Allow users to recommend something',
     'score type' => 'boolean',
     'empty text' => 'Be the first to recommend [company_name]',
-    'summary text' => '[yes_count] of [no_count] people would reccomend [company_name]',
-    'question' => 'Would you reccomed this.'
+    'summary text' => '[yes_count] of [no_count] people would recommend [company_name]',
+    'question' => 'Would you recommend this.'
     );
     return $items;
 }
@@ -180,7 +180,7 @@ function any_vote_render_block($key) {
   }
   else {
     // The block is not defined so return an empty array
-    return $array();
+    return array();
   }
 
 
@@ -387,6 +387,10 @@ function any_vote_render_block($key) {
   }
   $return_block['extra_classes'] = $extra_classes;
 
+  // Data for Google chart api parameters
+  $return_block['yes_count'] = $tokens['yes_count'];
+  $return_block['no_count'] = $tokens['no_count'];
+  $return_block['total_count'] = $tokens['total_count'];
 
   return $return_block;
 }
